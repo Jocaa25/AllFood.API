@@ -1,4 +1,5 @@
-﻿using AllFood.UseCases.Dtos;
+﻿using AllFood.UseCases.Dtos.Input;
+using AllFood.UseCases.Dtos.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace AllFood.UseCases.Interfaces
 {
     public interface ILoginUseCase
     {
-        Task<LoginUseCaseDto> AuthenticateUser(LoginUseCaseDto loginUseCaseDto);
+        Task<LoginOutputDto> AuthenticateUser(LoginInputDto loginUseCaseDto);
     }
 }

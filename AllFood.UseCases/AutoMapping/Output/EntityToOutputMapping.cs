@@ -9,5 +9,10 @@ namespace AllFood.UseCases.AutoMapping.Output
 {
     public class EntityToOutputMapping: Profile
     {
+        public EntityToOutputMapping() { 
+        
+            CreateMap<DataBase.Entities.User, Domain.Entities.User>();
+
+        }
     }
 }

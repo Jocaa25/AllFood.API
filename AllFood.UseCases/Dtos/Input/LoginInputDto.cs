@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using AllFood.UseCases.Interfaces;
 using AllFood.Domain.Entities;
 
-namespace AllFood.UseCases.Dtos
+namespace AllFood.UseCases.Dtos.Input
 {
-    public class LoginUseCaseDto
+    public class LoginInputDto
     {
         public User User { get; set; }
-        public string Message { get; set; }
     }
 }

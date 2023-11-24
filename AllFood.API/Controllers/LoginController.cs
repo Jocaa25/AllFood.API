@@ -3,8 +3,8 @@ using AllFood.UseCases.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using AllFood.UseCases.Dtos;
-using AllFood.API.Dtos.Login;
+using AllFood.UseCases.Dtos.Input;
+using AllFood.UseCases.Dtos.Output;
 
 namespace AllFood.API.Controllers
 {
@@ -20,8 +20,9 @@ namespace AllFood.API.Controllers
             loginUseCase = _loginUseCase;
             mapper = _mapper;
         }
-         [HttpPost]
-        public async Task<ActionResult<LoginResponseDto>> Login([FromBody] LoginUseCaseDto request)
+        [HttpPost]
+        [Route("Authenticate")]
+        public async Task<ActionResult<LoginOutputDto>> Login([FromBody] LoginInputDto request)
         {
             try
             {
@@ -32,12 +33,7 @@ namespace AllFood.API.Controllers
 
                 var result = await loginUseCase.AuthenticateUser(request);
 
-                var response = new LoginResponseDto
-                {
-                    Message = result.Message
-                };
-
-                return Ok(response);
+                return Ok(result);
 
             }
             catch (Exception)
